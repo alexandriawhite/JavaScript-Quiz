@@ -8,45 +8,68 @@
     <title>JavaScript Quiz</title>
 </head>
 <body>
-    <header>
-        <ul>
-            <li class="timer">
-                Time: 50
-            </li>
-        </ul>
-    </header>
     <!--Start quiz button-->
     <div class="start_btn"><button>Start Quiz</button></div>
     <!--Info Box-->
-    <div class="info_box"
-    <div class="quiz-container" id="quiz">
-        <div class="quiz-header">
-            <h2 id="question">Question text</h2>
-            <ul>
-                <li>
-                    <input type="button" name="answer" id="a"
-                    class="answer">
-                    <label for="a" id="a_text">Question</label>
-                </li>
-                <li>
-                    <input type="button" name="answer" id="b"
-                    class="answer">
-                    <label for="b" id="b_text">Question</label>
-                </li>
-                <li>
-                    <input type="button" name="answer" id="c"
-                    class="answer">
-                    <label for="c" id="c_text">Question</label>
-                </li>
-                <li>
-                    <input type="button" name="answer" id="d"
-                    class="answer">
-                    <label for="d" id="d_text">Question</label>
-                </li>              
-            </ul>
+    <div class="info_box">
+        <div class="info_title">
+            <span>Rules of the Quiz</span>
         </div>
-        <button id="submit">Submit</button>
+        <div class="info_list">
+            <div class="info">1. Click start quiz to begin.</div>
+            <div class="info">2. You will have <span>50 seconds</span> to complete the quiz.</div>
+            <div class="info">3. Incorrect questions will result in a 5 second time deduction.</div>
+            <div class="info">4. Once you answer, you can't reselect.</div>
+            <div class="info">5. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">6. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>  
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">JavaScript Quiz</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">50</div>
+            </div>
+        </header>
+        <section>
+            <!---->
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Here I've inserted options from JavaScript -->
+            </div>
+        </section>
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Next</button>
+        </footer>
     </div>
-    <script src="script.js"></script>
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+    <script src="./questions.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
