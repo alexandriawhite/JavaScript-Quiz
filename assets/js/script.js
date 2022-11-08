@@ -67,13 +67,13 @@ const bottom_ques_counter = document.querySelector("footer .total_que");
 
 
 // if Next Que button clicked
+//changing next_btn.onclick to option_list
 next_btn.onclick = ()=>{
     if(que_count < questions.length - 1){ //if question count is less than total question length
         que_count++; //increment the que_count value
         que_numb++; //increment the que_numb value
         showQuetions(que_count); //calling showQuestions function
         queCounter(que_numb); //passing que_numb value to queCounter
-        /*startTimer(timeValue); //calling startTimer function*/
         timeText.textContent = "Time Left"; //change the timeText to Time Left
         next_btn.classList.remove("show"); //hide the next button
     }else{

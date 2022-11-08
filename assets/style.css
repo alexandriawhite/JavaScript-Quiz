@@ -1,4 +1,4 @@
-
+/*Starting margin and padding at 0*/
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +6,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/*background white*/
 body{
     background: #fff;
 }
@@ -31,7 +32,7 @@ body{
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
-
+/*start button formatting*/
 .start_btn button{
     font-size: 25px;
     font-weight: 500;
@@ -73,8 +74,8 @@ body{
     margin: 5px 0;
     font-size: 17px;
 }
-
-.info_box .info-list .info span{
+ /*changing span in instructions to blue*/
+.info_box .info-list .info span {
     font-weight: 600;
     color: #007bff;
 }
@@ -99,7 +100,7 @@ body{
     border-radius: 5px;
     border: 1px solid #8e44ad;
 }
-
+/*box quiz is in*/
 .quiz_box{
     width: 70%;
     background: #fff;
@@ -152,11 +153,10 @@ body{
     border-radius: 5px;
     line-height: 30px;
     text-align: center;
-        /*background: #343a40;
-    border: 1px solid #343a40;*/
     user-select: none;
 }
 
+/*section formatting*/
 
 section{
     padding: 25px 30px 20px 30px;
@@ -187,11 +187,7 @@ section .option_list .option{
     justify-content: space-between;
 }
 
-/*
-section .option_list .option:last-child{
-    margin-bottom: 0px;
-}
-*/
+
 section .option_list .option:hover{
     color: #8e44ad;
     background: #d6bde2;
@@ -214,7 +210,7 @@ section .option_list .option.disabled{
     pointer-events: none;
 }
 
-
+/*footer formatting*/
 footer{
     height: 60px;
     padding: 0 30px;
@@ -266,6 +262,7 @@ footer button.show{
     transform: scale(1);
 }
 
+/*result box section*/
 .result_box{
     background: #fff;
     border-radius: 5px;
@@ -321,6 +318,7 @@ footer button.show{
     border: 1px solid #8e44ad;
 }
 
+/*button section*/
 .buttons button.restart{
     color: #fff;
     background: #8e44ad;
@@ -340,12 +338,6 @@ footer button.show{
     background: #8e44ad;
 }
 
-#final {
-    display:none;
-}
-/* Final page text styling */
-#final p {
-    margin: 20px 0;
-    font-family: sans-serif;
-    font-size: 110%    
+nav ul li {
+    list-style-type: none;
 }
