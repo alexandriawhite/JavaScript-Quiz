@@ -44,8 +44,8 @@ THEN I can save my initials and my score
 * MIT License
 
 # Links
-* URL of GitHub Repository: https://github.com/alexandriawhite/Timed-Quiz
-* URL of deployed application: https://alexandriawhite.github.io/Timed-Quiz/
+* URL of GitHub Repository: https://github.com/alexandriawhite/JavaScript-Quiz/
+* URL of deployed application: https://alexandriawhite.github.io/JavaScript-Quiz/
 
 # 📝 Notes
 * 
