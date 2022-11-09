@@ -11,6 +11,8 @@ let timeCount = document.querySelector(".timer .timer_sec");
 const initials = document.querySelector(".initials");
 const initialsbutton = document.querySelector(".initialsbutton");
 const userinput = document.querySelector("#userinput");
+let highscores = document.querySelector(".highscores");
+let submit = document.querySelector(".submit");
 
 // if startQuiz button clicked
 start_btn.onclick = ()=>{
@@ -62,6 +64,7 @@ restart_quiz.onclick = ()=>{
 // if quitQuiz button clicked
 quit_quiz.onclick = ()=>{
     window.location.reload(); //reload the current window
+    localStorage.clear();
 }
 
 const next_btn = document.querySelector("footer .next_btn");
@@ -140,15 +143,15 @@ function showResult(){
 
     if (userScore > 3){ // if user scored more than 3
         //creating a new span tag and passing the user score number and total question number
-        let scoreTag = '<span>and congrats! , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        let scoreTag = '<span>Congrats! You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
     }
     else if(userScore > 1){ // if user scored more than 1
-        let scoreTag = '<span>and nice , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        let scoreTag = '<span>Good job! You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;
     }
     else{ // if user scored less than 1
-        let scoreTag = '<span>and sorry , You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        let scoreTag = '<span>Sorry, you scored <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;
     }
 }
@@ -183,7 +186,7 @@ function startTimer(){
 
 initialsbutton.addEventListener("click", function(event){
 event.preventDefault()
-    let userinitials = userinput.value
+    let userinitials = userinput.value;
     let userScore = JSON.parse(localStorage.getItem("userScore")); /*getting user score*/
     let allscores = JSON.parse(localStorage.getItem("allscores")) || []; /*getting all user score*/
     allscores.push({
@@ -191,6 +194,18 @@ event.preventDefault()
     })
     localStorage.setItem("allscores", JSON.stringify(allscores));
 })
+
+document.getElementById(submit).addEventListener("click", function(){
+       document.getElementById('highscores').textContent = userScore;
+       updateUI();
+})
+
+
+function updateUI() {
+    var values = [], keys = object.keys(localStorage), i = keys.length;
+    while (i--) {values.push(localStorage.getItem(keys[i]));}
+    document.getElementById('highscores').textcontent = values;
+    }
 
 function queCounter(index){
     //creating a new span tag and passing the question number and total question

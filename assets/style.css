@@ -285,7 +285,7 @@ footer button.show{
 
 .result_box .complete_text{
     font-size: 20px;
-    font-weight: 500;
+    font-weight:bold;
 }
 
 .result_box .score_text span{
@@ -341,6 +341,7 @@ footer button.show{
 nav ul li {
     list-style-type: none;
 }
-.hide {
+.hide,
+.onsubmit {
     display: none;
 }
