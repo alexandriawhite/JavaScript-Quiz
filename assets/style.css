@@ -341,3 +341,6 @@ footer button.show{
 nav ul li {
     list-style-type: none;
 }
+.hide {
+    display: none;
+}

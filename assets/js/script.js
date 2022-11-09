@@ -8,7 +8,9 @@ const result_box = document.querySelector(".result_box");
 const option_list = document.querySelector(".option_list");
 const timeText = document.querySelector(".timer .time_left_txt");
 let timeCount = document.querySelector(".timer .timer_sec");
-
+const initials = document.querySelector(".initials");
+const initialsbutton = document.querySelector(".initialsbutton");
+const userinput = document.querySelector("#userinput");
 
 // if startQuiz button clicked
 start_btn.onclick = ()=>{
@@ -78,7 +80,6 @@ next_btn.onclick = ()=>{
         next_btn.classList.remove("show"); //hide the next button
     }else{
         clearInterval(counter); //clear counter
-        clearInterval(counterLine); //clear counterLine
         showResult(); //calling showResult function
     }
 }
@@ -113,9 +114,8 @@ function optionSelected(answer){
     
     if(userAns == correcAns){ //if user selected option is equal to array's correct answer
         userScore += 1; //upgrading score value with 1
-        localStorage.setItem("userScore", JSON.stringify([]));
-        JSON.parse(localStorage.getItem("userScore")); /*Need to pull this later on*/
-        answer.classList.add("correct"); //adding green color to correct selected option
+        localStorage.setItem("userScore", JSON.stringify(userScore));
+                answer.classList.add("correct"); //adding green color to correct selected option
     }else{
         answer.classList.add("incorrect"); //adding red color to correct selected option
         timeValue -=5;
@@ -134,6 +134,7 @@ function optionSelected(answer){
 function showResult(){
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
+    initials.classList.remove("hide"); //shows initials form
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
 
@@ -180,6 +181,16 @@ function startTimer(){
     }
 }
 
+initialsbutton.addEventListener("click", function(event){
+event.preventDefault()
+    let userinitials = userinput.value
+    let userScore = JSON.parse(localStorage.getItem("userScore")); /*getting user score*/
+    let allscores = JSON.parse(localStorage.getItem("allscores")) || []; /*getting all user score*/
+    allscores.push({
+        initials:userinitials,score:userScore
+    })
+    localStorage.setItem("allscores", JSON.stringify(allscores));
+})
 
 function queCounter(index){
     //creating a new span tag and passing the question number and total question
