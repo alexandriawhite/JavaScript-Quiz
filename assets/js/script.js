@@ -13,6 +13,12 @@ const initialsbutton = document.querySelector(".initialsbutton");
 const userinput = document.querySelector("#userinput");
 let highscores = document.querySelector(".highscores");
 let submit = document.querySelector(".submit");
+const storageInput = document.querySelector(".storage");
+const text = document.querySelector(".text");
+const keyuserScore = localStorage.getItem("userScore");
+const keyallscores = JSON.parse(localStorage.getItem("allscores")) || [];
+const keyuserinitials = localStorage.getItem("userinitials");
+
 
 // if startQuiz button clicked
 start_btn.onclick = ()=>{
@@ -128,7 +134,7 @@ function optionSelected(answer){
             }
         }
     }
-    for(i=0; i < allOptions; i++){
+    for (var i=0; i < allOptions; i++){
         option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
     }
     next_btn.classList.add("show"); //show the next button if user selected any option
@@ -186,26 +192,41 @@ function startTimer(){
 
 initialsbutton.addEventListener("click", function(event){
 event.preventDefault()
-    let userinitials = userinput.value;
+    const userinitials = userinput.value;
     let userScore = JSON.parse(localStorage.getItem("userScore")); /*getting user score*/
     let allscores = JSON.parse(localStorage.getItem("allscores")) || []; /*getting all user score*/
     allscores.push({
         initials:userinitials,score:userScore
     })
     localStorage.setItem("allscores", JSON.stringify(allscores));
+    localStorage.setItem("userinitials", userinput.value)
+    userinitials.textContent = userinitials;
+        var li=document.createElement("li")
+        li.textContent = userScore
+        text.append(li)
 })
 
-document.getElementById(submit).addEventListener("click", function(){
-       document.getElementById('highscores').textContent = userScore;
-       updateUI();
-})
+
+if(keyallscores){
+    for (var i=0; i < keyallscores.length; i++){
+        var li=document.createElement("li")
+        li.textContent = keyallscores[i].score
+        text.append(li)
+    }
+}
 
 
+/*
+if(keyuserinitials){
+    keyuserinitials.textContent = keyuserinitials
+}
+
+/*
 function updateUI() {
     var values = [], keys = object.keys(localStorage), i = keys.length;
     while (i--) {values.push(localStorage.getItem(keys[i]));}
     document.getElementById('highscores').textcontent = values;
-    }
+    }*/
 
 function queCounter(index){
     //creating a new span tag and passing the question number and total question
