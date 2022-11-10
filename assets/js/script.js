@@ -202,7 +202,8 @@ event.preventDefault()
     localStorage.setItem("userinitials", userinput.value)
     userinitials.textContent = userinitials;
         var li=document.createElement("li")
-        li.textContent = userScore
+        var p=document.createElement("p")
+        li.textContent = userinitials + " - " + userScore
         text.append(li)
 })
 
