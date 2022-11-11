@@ -10,7 +10,7 @@
 * Notes
 
 ## Description
-
+Challenge 4 was creating a website featuring a short Javascript quiz. It is timed and scored so you can test your knowledge.
 
 ### User Story 
 ```

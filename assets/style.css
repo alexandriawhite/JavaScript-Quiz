@@ -15,7 +15,8 @@ body{
 .start_btn,
 .info_box,
 .quiz_box,
-.result_box{
+.result_box
+{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -338,10 +339,20 @@ footer button.show{
     background: #8e44ad;
 }
 
-nav ul li {
-    list-style-type: none;
-}
 .hide,
 .onsubmit {
     display: none;
+}
+/*
+.hs {
+    margin: 0 10px;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #8e44ad;
 }
